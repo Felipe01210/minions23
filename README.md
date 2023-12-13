@@ -1,6 +1,6 @@
 # MinionLand
 
-##Comandos utilizados
+## Comandos utilizados
 ng new MinionLand
 ng g c --skip-tests --style none navbar
 ng g c --skip-tests --style none minions
