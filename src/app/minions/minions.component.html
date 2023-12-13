@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="card" style="width: 18rem;" *ngFor="let minion of minions">
+        @for (minion of minions; track $index) {
+        <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="{{minion.img}}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{minion.name}}</h5>
@@ -8,5 +9,6 @@
               <p class="card-text">Birth: {{minion.birth}} | Side: {{minion.side}}</p>
             </div>
         </div>
+        }
     </div>
 </div>
