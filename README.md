@@ -1,4 +1,9 @@
-# PruebasAngular
+# MinionLand
+
+##Comandos utilizados
+ng new MinionLand
+ng g c --skip-tests --style none navbar
+ng g c --skip-tests --style none minions
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
