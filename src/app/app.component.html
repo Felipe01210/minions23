@@ -1,2 +1,2 @@
-<app-navbar></app-navbar>
-<app-minions></app-minions>
+<app-navbar (emittQuery)="searchMinion($event)"></app-navbar>
+<app-minions [minions]="filtrados"></app-minions>
