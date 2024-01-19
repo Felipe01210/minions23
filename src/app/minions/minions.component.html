@@ -1,0 +1,53 @@
+<div class="container" style="width: 50vw; float: left;">
+    <div class="row">
+        @if({minions: minions$|async, error: error$|async}; as data){
+            @if(!data.error && data.minions; as minions){
+                @for (minion of data.minions; track $index) {
+                <!-- <div class="card" style="width: 18rem;" routerLink="./info/{{minion.id}}"> -->
+                    <div class="card" style="width: 18rem;" (click)="goToInfo(minion.id)">
+                    <img class="card-img-top" src="{{minion.img}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{minion.name}}</h5>
+                      <p class="card-text">{{minion.bio}}</p>
+                      <p class="card-text">Birth: {{minion.birth}} | Side: {{minion.side}}</p>
+                    <img *ngIf="minion.side == 'de los buenos'; else malo" src="../../assets/img/de los buenos.PNG" style="width: 3rem; float: left;">
+                    <ng-template #malo>
+                        <img src="../../assets/img/de los malos.PNG" style="width: 3rem; float: left;">
+                    </ng-template>
+                    <svg (click)="addFav(minion)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16" style="float: right;" *ngIf="favoritos.indexOf(minion) == -1; else fav">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                    <ng-template #fav>
+                        <svg (click)="quitFav(minion)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" style="float: right;">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                        </svg>
+                    </ng-template>
+                    </div>
+                </div>
+                }
+                <hr>
+                <h2>Favoritos</h2>
+                @for (minion of favoritos; track $index) {
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{minion.img}}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{minion.name}}</h5>
+                          <p class="card-text">{{minion.bio}}</p>
+                          <p class="card-text">Birth: {{minion.birth}} | Side: {{minion.side}}</p>
+                        <img *ngIf="minion.side == 'de los buenos'; else malo" src="../../assets/img/de los buenos.PNG" style="width: 3rem; float: left;">
+                        <ng-template #malo>
+                            <img src="../../assets/img/de los malos.PNG" style="width: 3rem; float: left;">
+                        </ng-template>
+                        </div>
+                    </div>
+                    }
+            }
+            @else if(data.error){
+                <h2>Transaction error</h2>
+                <p>{{data.error.message}}</p>
+            }
+        }
+    </div>
+</div>
+
+<router-outlet style="width: 50vw; float: left;"></router-outlet>

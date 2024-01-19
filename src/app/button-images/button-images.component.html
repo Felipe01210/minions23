@@ -1,0 +1,10 @@
+<h3>Primer Reto: Mostrar y Esconder</h3>
+<hr>
+<button type="button" (click)="showOrHide(0)">{{buttons[0]}}</button>
+<img src="{{imgs[0]}}" alt="GatiContento" *ngIf="banderas[0]">
+<hr>
+<button type="button" (click)="showOrHide(1)">{{buttons[1]}}</button>
+<img src="{{imgs[1]}}" alt="PerriTriste" *ngIf="banderas[1]">
+<hr>
+<button type="button" (click)="showOrHide(2)">{{buttons[2]}}</button>
+<img src="{{imgs[2]}}" alt="PerriGato" *ngIf="banderas[2]">

@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem;">
+    <img src="{{productData.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{productData.name}}</h5>
+      <p class="card-text">{{productData.description}}</p>
+      <p class="card-test">Precio = {{productData.price}}</p>
+      <label>Quality: </label>
+      <app-valoraciones [valoracion]="productData.quality"></app-valoraciones>
+      <label>Quality - Price Ratio: </label>
+      <app-valoraciones [valoracion]="productData.quality_price_ratio"></app-valoraciones>
+      <p class="card-text">Durabilidad: {{productData.durability}}</p>
+    </div>
+</div>

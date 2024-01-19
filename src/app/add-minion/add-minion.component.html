@@ -1,0 +1,33 @@
+<div>
+
+    @if(error){
+
+        <h2>Transaction error</h2>
+        <h3>{{errorText}}</h3>
+
+    }
+    @else{
+        <h2>Add Minion</h2>
+        <form>
+            <span>Name: </span>
+            <input type="text" name="name" [(ngModel)]="minion.name">
+            <br>
+            <span>Bio: </span>
+            <input type="text" size="100px" name="bio" [(ngModel)]="minion.bio">
+            <br>
+            <span>Birth: </span>
+            <input type="number" name="birth" [(ngModel)]="minion.birth">
+            <br>
+            <span>Side: </span>
+            <br>
+            <input type="radio" name="side" id="side" value="de los buenos" [(ngModel)]="minion.side">de los buenos
+            <br>
+            <input type="radio" name="side" id="side" value="malvado" [(ngModel)]="minion.side">malvado
+            <br>
+            <br>
+            <button type="button" (click)="sendMinion()">Send Minion</button>
+        </form>
+
+    }
+</div>
+

@@ -1,0 +1,17 @@
+@if (minion$|async; as minion) {
+    <h2>{{minion.name}} page</h2>
+    
+    <img src="{{minion.img}}" style="width: 30rem;">
+    <p>{{minion.bio}}</p>
+    <p>Birth: {{minion.birth}}</p>
+    <p>Side: {{minion.side}}</p>
+    
+    <hr>
+    <h3>Options</h3>
+    <a routerLink="/edit/{{minion.id}}"><button type="button">Edit</button></a>
+    <a routerLink="/delete/{{minion.id}}"><button type="button">Delete</button></a>
+
+}
+@else {
+    <h2>Transaction error</h2>
+}
