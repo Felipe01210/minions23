@@ -16,8 +16,7 @@ export class AddMinionComponent {
   error: Boolean = false;
   errorText: String = '';
 
-  minion: Minion = {
-    id:    0,
+  minion: Omit<Minion,'id'> = {
     name:  "",
     bio:   "",
     img:   "assets/img/default.jpg",

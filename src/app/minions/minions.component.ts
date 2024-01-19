@@ -27,7 +27,9 @@ export class MinionsComponent implements OnInit{
   // @Input() minions: Minion[] = [];
 
   //Input tras rutas
-  @Input() searchTerm: string = '';
+  //Si no te funciona este input comprueba los providers en app.config.ts
+  //De nada, Felipe del mañana
+  @Input() searchTerm: string = 'false';
 
   constructor(private minionService: MinionsService, private router: Router, private route: ActivatedRoute){}
 

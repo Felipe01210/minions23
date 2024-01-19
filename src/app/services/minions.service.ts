@@ -30,7 +30,7 @@ export class MinionsService {
     return this.http.get<Minion[]>(`${this.url}?q=${query}`)
   }
 
-  addMinion(minion: Minion): Observable<Minion>{
+  addMinion(minion: Omit<Minion,'id'>): Observable<Minion>{
     return this.http.post<Minion>(this.url, minion);
   }
 
